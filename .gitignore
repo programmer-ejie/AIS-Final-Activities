@@ -1,0 +1,20 @@
+# Ignore everything unless explicitly included below.
+/*
+!/.gitignore
+!/README.md
+!/Lesson 5/
+
+/Lesson 5/*
+!/Lesson 5/Actual/
+
+/Lesson 5/Actual/*
+!/Lesson 5/Actual/Student Exercise/
+
+# Keep local editor files, dependencies, and secrets out of the exercise.
+**/.vscode/
+**/.idea/
+**/node_modules/
+**/.env
+**/.env.*
+**/Thumbs.db
+**/.DS_Store
