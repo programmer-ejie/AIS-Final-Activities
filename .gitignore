@@ -5,10 +5,7 @@
 !/Lesson 5/
 
 /Lesson 5/*
-!/Lesson 5/Actual/
-
-/Lesson 5/Actual/*
-!/Lesson 5/Actual/Student Exercise/
+!/Lesson 5/README.md
 
 # Keep local editor files, dependencies, and secrets out of the exercise.
 **/.vscode/

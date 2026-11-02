@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lesson 5 | Incident Response and Documentation</title>
+    <style>
+      body {
+        font: 16px system-ui;
+        max-width: 1100px;
+        margin: 36px auto;
+        padding: 0 20px;
+        color: #182b40;
+        background: #f3f6fa;
+      }
+      h1 {
+        color: #123b60;
+      }
+      section {
+        background: white;
+        padding: 20px;
+        margin: 18px 0;
+        border-radius: 12px;
+      }
+      button {
+        padding: 10px 16px;
+        margin: 4px;
+        background: #174d78;
+        color: white;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 9px;
+        border-bottom: 1px solid #ddd;
+      }
+      pre {
+        white-space: pre-wrap;
+        background: #eef3f8;
+        padding: 15px;
+      }
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 250px;
+        padding: 12px;
+      }
+      .scroll {
+        overflow: auto;
+      }
+      nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+      nav a { padding: 10px 16px; background: #174d78; color: white; border-radius: 6px; text-decoration: none; }
+      nav a:focus-visible, button:focus-visible { outline: 3px solid #c05b00; outline-offset: 3px; }
+      section { scroll-margin-top: 20px; }
+      #guide-questions textarea { min-height: 110px; margin: 8px 0 20px; }
+      #student-name { padding: 8px; max-width: 100%; box-sizing: border-box; }
+      @media print {
+        nav { display: none; }
+        button {
+          display: none;
+        }
+        body {
+          background: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lesson 5: Incident Response and Documentation</h1>
+    <p>IT 310L | Information Assurance and Security 2 | 90-minute analysis activity</p>
+    <nav aria-label="Activity navigation">
+      <a href="#scenario">Scenario</a>
+      <a href="#investigation">Evidence and Tests</a>
+      <a href="#guide-questions">Guide Questions</a>
+      <a href="#incident-report">Incident Report (optional)</a>
+    </nav>
+    <section id="scenario">
+      <h2>Simulated incident</h2>
+      <p>
+        A school laboratory server recorded repeated external login attempts and
+        an internal security alert. Review eight fictional events, apply the
+        supplied exercise rules, and explain which findings require
+        investigation.
+      </p>
+      <p>
+        <strong>Simulation:</strong> All records are fictional. Blacklists and
+        recovery messages below only change browser data; they do not configure
+        a firewall or restore files. A failed login alone does not prove
+        compromise.
+      </p>
+    </section>
+    <section id="investigation">
+      <h2>Evidence and investigation</h2>
+      <p>
+        <strong>Analysis activity:</strong> The code is complete. Read flow.js,
+        predict the output, run the tests, and answer the Guide Questions.
+        Read ACTIVITY.md first. script.js handles the interface and document downloads.
+      </p>
+      <p>Evidence is included and loads automatically. Review the records below before running the tests.</p>
+      <p id="file-status" role="status">Loading supplied evidence...</p>
+      <button id="show" disabled>1. Show evidence</button
+      ><button id="analyze" disabled>2. Analyze logs</button
+      ><button id="recover">3. Verify simulated recovery</button
+      ><button id="reset">Reset</button>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Event</th>
+              <th>Status</th>
+              <th>User</th>
+              <th>IP</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="logs"></tbody>
+        </table>
+      </div>
+      <pre id="output" aria-live="polite">
+Loading supplied evidence... Open F12 ? Console to also see analysis output.</pre>
+    </section>
+    <section id="guide-questions" aria-labelledby="guide-title">
+      <h2 id="guide-title">Guide Questions</h2>
+      <p>Analyze the working program. Answer all eight questions using evidence timestamps,
+        code conditions, and observed test results. You do not need to implement functions.</p>
+      <p><strong>Save your work:</strong> Answers are not saved automatically. Download them
+        before refreshing, especially before the failed-recovery test. Paste saved answers
+        back into the boxes after reloading, or combine your downloaded copies for submission.</p>
+      <p><label for="student-name">Name(s) and section:</label>
+        <input id="student-name" type="text" /></p>
+      <h3>1. Evidence and detection</h3>
+      <label for="answer-1">Which five events are flagged? Cite each timestamp and explain which condition matches. Why is the denied request at 09:02:00 not flagged?</label>
+      <textarea id="answer-1" placeholder="Write your evidence and explanation here."></textarea>
+      <h3>2. Successful login</h3>
+      <label for="answer-2">Why is the successful login at 09:06:00 flagged? Does SUCCESS prove that access was authorized? What additional evidence would you request?</label>
+      <textarea id="answer-2" placeholder="Write your evidence and explanation here."></textarea>
+      <h3>3. OR condition</h3>
+      <label for="answer-3">The internal IP at 09:07:00 is not in suspiciousIPs. Why is its event included? What would change if the detection OR operator (||) were replaced with AND (&&)? Predict without editing the code.</label>
+      <textarea id="answer-3" placeholder="Write your evidence and explanation here."></textarea>
+      <h3>4. Unique blacklist</h3>
+      <label for="answer-4">Explain each condition in buildBlacklist(). Why do the repeated failures at 09:05:00 and 09:05:30 produce one address? Does this array actually block traffic?</label>
+      <textarea id="answer-4" placeholder="Write your evidence and explanation here."></textarea>
+      <h3>5. Repeated analysis test</h3>
+      <label for="answer-5">Predict the suspicious-event count and unique blacklist IPs. Click Analyze logs twice. Record your expected result, actual result, and PASS/FAIL. Explain why addresses do not accumulate.</label>
+      <textarea id="answer-5" placeholder="Write your evidence and explanation here."></textarea>
+      <h3>6. Recovery tests</h3>
+      <label for="answer-6">Run recovery with all five values true. Then change servicesHealthy to false in flow.js, save, refresh, wait for evidence to load automatically, and verify again. Record expected and actual results for both tests, then restore true. Download your answers before refreshing.</label>
+      <textarea id="answer-6" placeholder="Write your evidence and explanation here."></textarea>
+      <h3>7. Recovery evidence</h3>
+      <label for="answer-7">Does RECOVERY COMPLETE prove a real server is safe? Choose two recovery properties and describe the real evidence needed to support each PASS.</label>
+      <textarea id="answer-7" placeholder="Write your evidence and explanation here."></textarea>
+      <h3>8. Response and limitations</h3>
+      <label for="answer-8">Recommend two authorized containment actions and explain their purpose. Describe one concerning event the supplied rules could miss, and distinguish observed facts from conclusions that still need investigation.</label>
+      <textarea id="answer-8" placeholder="Write your evidence and explanation here."></textarea>
+      <button id="download-answers" type="button">Download answers (.docx)</button>
+      <button type="button" onclick="window.print()">Print answers and evidence</button>
+    </section>
+    <section id="incident-report">
+      <h2>Incident report (optional follow-up)</h2>
+      <p>
+        Use evidence timestamps. Separate observations, suspicions, and
+        confirmed findings within the fictional scenario. Save the report before
+        refreshing or closing this page.
+      </p>
+      <textarea id="report" aria-label="Incident report"></textarea
+      ><button id="download">Download incident_report.txt</button
+      ><button onclick="window.print()">Print</button>
+    </section>
+    <!-- Offline copy of incident_logs.json. Keep this dataset in sync if evidence changes. -->
+    <script id="evidence-data" type="application/json">
+[
+  {
+    "timestamp": "2026-10-21T09:00:00+08:00",
+    "eventType": "LOGIN",
+    "status": "SUCCESS",
+    "user": "student_a",
+    "ip": "192.168.1.20",
+    "details": "Normal lab login"
+  },
+  {
+    "timestamp": "2026-10-21T09:02:00+08:00",
+    "eventType": "FILE_ACCESS",
+    "status": "DENIED",
+    "user": "student_a",
+    "ip": "192.168.1.20",
+    "details": "Restricted folder; access control worked"
+  },
+  {
+    "timestamp": "2026-10-21T09:05:00+08:00",
+    "eventType": "LOGIN",
+    "status": "FAILED",
+    "user": "admin",
+    "ip": "198.51.100.24",
+    "details": "Unexpected external login attempt"
+  },
+  {
+    "timestamp": "2026-10-21T09:05:30+08:00",
+    "eventType": "LOGIN",
+    "status": "FAILED",
+    "user": "admin",
+    "ip": "198.51.100.24",
+    "details": "Repeated attempt from same source"
+  },
+  {
+    "timestamp": "2026-10-21T09:06:00+08:00",
+    "eventType": "LOGIN",
+    "status": "SUCCESS",
+    "user": "admin",
+    "ip": "198.51.100.24",
+    "details": "Unexpected successful external login"
+  },
+  {
+    "timestamp": "2026-10-21T09:07:00+08:00",
+    "eventType": "FILE_ACCESS",
+    "status": "ALERT",
+    "user": "admin",
+    "ip": "192.168.1.30",
+    "details": "Sensor alert on internal host; investigate"
+  },
+  {
+    "timestamp": "2026-10-21T09:08:00+08:00",
+    "eventType": "LOGIN",
+    "status": "FAILED",
+    "user": "admin",
+    "ip": "203.0.113.77",
+    "details": "Second suspicious external source"
+  },
+  {
+    "timestamp": "2026-10-21T09:09:00+08:00",
+    "eventType": "FILE_ACCESS",
+    "status": "SUCCESS",
+    "user": "student_b",
+    "ip": "192.168.1.21",
+    "details": "Authorized course material access"
+  }
+]
+
+    </script>
+    <script src="flow.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
