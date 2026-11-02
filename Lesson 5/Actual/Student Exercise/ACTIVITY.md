@@ -4,7 +4,7 @@ Duration: 8 hours. Work individually or in pairs as directed.
 
 ## Start here
 
-You will write three JavaScript functions using arrays, loops, and conditions. The HTML, JSON loading, sorting, and display code are already complete. You do not need to write DOM or file-loading code.
+You will write three JavaScript functions using arrays, loops, and conditions. The HTML and the JSON loading, sorting, and display code in Part B of script.js are already complete. You do not need to write DOM or file-loading code.
 
 1. Open `index.html` and select this folder's `incident_logs.json` using **Load evidence**.
 2. Open `script.js`. Complete only the three functions marked TASK 1, TASK 2, and TASK 3.
@@ -17,7 +17,7 @@ You will write three JavaScript functions using arrays, loops, and conditions. T
 | ----------------------------- | ---------------------------------------------------------------------- |
 | `script.js`                   | Complete three functions and test the recovery setting.                |
 | `incident_logs.json`          | Read the eight events. Keep the original; save a copy for extra tests. |
-| `support.js` and `index.html` | Provided working interface and loader. No edits needed.                |
+| Part B of `script.js` and `index.html` | Provided working interface and loader. No edits needed. |
 | `incident_report.txt`         | Replace with your downloaded completed report.                         |
 | `recovery_checklist.txt`      | Record your verification results.                                      |
 | `incident_logs.txt`           | Reference pointer only; the application does not read it.              |
@@ -74,7 +74,7 @@ Use the report box on the page, then download it. Write a short paragraph or a f
 
 ## Submit and grading
 
-Submit the project folder with completed `script.js`, unchanged original JSON, your test JSON, provided HTML and support.js, downloaded incident report, completed recovery checklist, and `test_notes.txt`. Include screenshots of analysis and both recovery outcomes.
+Submit the project folder with completed `script.js`, unchanged original JSON, your test JSON, provided HTML and the supplied Part B of script.js, downloaded incident report, completed recovery checklist, and `test_notes.txt`. Include screenshots of analysis and both recovery outcomes.
 
 - Detection accuracy and preserved evidence: 30 points.
 - Unique blacklist and repeated-run behavior: 20 points.
