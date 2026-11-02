@@ -1,0 +1,4 @@
+REFERENCE ONLY
+The program reads incident_logs.json, not this text file.
+Use incident_logs.json as the original evidence and keep it unchanged.
+Save extra test events in a separate JSON copy.

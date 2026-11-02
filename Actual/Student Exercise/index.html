@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lesson 5 | Incident Response and Documentation</title>
+    <style>
+      body {
+        font: 16px system-ui;
+        max-width: 1100px;
+        margin: 36px auto;
+        padding: 0 20px;
+        color: #182b40;
+        background: #f3f6fa;
+      }
+      h1 {
+        color: #123b60;
+      }
+      section {
+        background: white;
+        padding: 20px;
+        margin: 18px 0;
+        border-radius: 12px;
+      }
+      button {
+        padding: 10px 16px;
+        margin: 4px;
+        background: #174d78;
+        color: white;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 9px;
+        border-bottom: 1px solid #ddd;
+      }
+      pre {
+        white-space: pre-wrap;
+        background: #eef3f8;
+        padding: 15px;
+      }
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 250px;
+        padding: 12px;
+      }
+      .scroll {
+        overflow: auto;
+      }
+      @media print {
+        button {
+          display: none;
+        }
+        body {
+          background: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lesson 5: Incident Response and Documentation</h1>
+    <p>IT 310L | Information Assurance and Security 2 | 8 hours</p>
+    <section>
+      <h2>Simulated incident</h2>
+      <p>
+        A school laboratory server recorded repeated external login attempts and
+        an internal security alert. Review eight fictional events, apply the
+        supplied exercise rules, and explain which findings require
+        investigation.
+      </p>
+      <p>
+        <strong>Simulation:</strong> All records are fictional. Blacklists and
+        recovery messages below only change browser data; they do not configure
+        a firewall or restore files. A failed login alone does not prove
+        compromise.
+      </p>
+    </section>
+    <section>
+      <h2>Evidence and investigation</h2>
+      <p>
+        <strong>Coding task:</strong> Complete only the three functions in
+        script.js. The JSON loader and page controls in support.js are provided.
+        Read ACTIVITY.md first.
+      </p>
+      <p>
+        <label for="log-file"
+          >Load evidence: select incident_logs.json from this folder.</label
+        >
+      </p>
+      <input id="log-file" type="file" accept=".json,application/json" />
+      <p id="file-status" role="status">No evidence loaded.</p>
+      <button id="show" disabled>1. Show evidence</button
+      ><button id="analyze" disabled>2. Analyze logs</button
+      ><button id="recover">3. Verify simulated recovery</button
+      ><button id="reset">Reset</button>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Event</th>
+              <th>Status</th>
+              <th>User</th>
+              <th>IP</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="logs"></tbody>
+        </table>
+      </div>
+      <pre id="output" aria-live="polite">
+Load incident_logs.json to begin. Open F12 ? Console to also see analysis output.</pre>
+    </section>
+    <section>
+      <h2>Incident report</h2>
+      <p>
+        Use evidence timestamps. Separate observations, suspicions, and
+        confirmed findings within the fictional scenario. Save the report before
+        refreshing or closing this page.
+      </p>
+      <textarea id="report" aria-label="Incident report"></textarea
+      ><button id="download">Download incident_report.txt</button
+      ><button onclick="window.print()">Print</button>
+    </section>
+    <script src="script.js"></script>
+    <script src="support.js"></script>
+  </body>
+</html>

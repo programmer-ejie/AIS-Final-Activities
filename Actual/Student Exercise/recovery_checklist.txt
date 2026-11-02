@@ -1,0 +1,10 @@
+RECOVERY CHECKLIST ? Simulation
+[ ] Preserve original evidence and document timestamps.
+[ ] Record containment and eradication actions.
+[ ] Confirm backup was created before the incident and is known-good.
+[ ] Compare restored file integrity with a trusted baseline.
+[ ] Confirm malicious artifacts were removed and credentials rotated.
+[ ] Test restored service availability and access controls.
+[ ] Record failed checks and corrective actions.
+[ ] Obtain authorized approval to return to service and continue monitoring.
+[ ] Share findings only through authorized incident/privacy channels.
