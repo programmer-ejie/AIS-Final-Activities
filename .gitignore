@@ -1,10 +1,6 @@
 # Ignore everything unless explicitly included below.
-/*
 !/.gitignore
 !/README.md
-!/Lesson 5/
-
-/Lesson 5/*
 !/Lesson 5/README.md
 
 # Keep local editor files, dependencies, and secrets out of the exercise.
