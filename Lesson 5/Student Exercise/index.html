@@ -206,7 +206,7 @@ Loading supplied evidence... Open F12 ? Console to also see analysis output.</pr
       <label for="answer-5">Predict the suspicious-event count and unique blacklist IPs. Click Analyze logs twice. Record your expected result, actual result, and PASS/FAIL. Explain why addresses do not accumulate.</label>
       <textarea id="answer-5" placeholder="Write your evidence and explanation here."></textarea>
       <h3>6. Recovery tests</h3>
-      <label for="answer-6">Run recovery with all five values true. Then change servicesHealthy to false in service.js, save, refresh, wait for evidence to load automatically, and verify again. Record expected and actual results for both tests, then restore true. Download your answers before refreshing.</label>
+      <label for="answer-6">Run recovery with all five values true. Then change servicesHealthy to false in status.js, save, refresh, wait for evidence to load automatically, and verify again. Record expected and actual results for both tests, then restore true. Download your answers before refreshing.</label>
       <textarea id="answer-6" placeholder="Write your evidence and explanation here."></textarea>
       <h3>7. Recovery evidence</h3>
       <label for="answer-7">Does RECOVERY COMPLETE prove a real server is safe? Choose two recovery properties and describe the real evidence needed to support each PASS.</label>
@@ -297,6 +297,7 @@ Loading supplied evidence... Open F12 ? Console to also see analysis output.</pr
           }
         ]
     </script>
+    <script src="status.js"></script>
     <script src="service.js"></script>
     <script src="controller.js"></script>
     <script src="background.js"></script>

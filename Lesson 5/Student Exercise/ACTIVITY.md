@@ -21,7 +21,7 @@ Record the test, expected output, actual output, PASS/FAIL, and security interpr
 - Original JSON: five flagged events (09:05:00, 09:05:30, 09:06:00, 09:07:00, 09:08:00); two unique blacklist IPs (198.51.100.24 and 203.0.113.77).
 - Analyze twice: still five events and two unique addresses.
 - All recovery values true: five PASS lines and RECOVERY COMPLETE.
-- In `service.js`, change only `servicesHealthy` to false, save, refresh, wait for evidence to load automatically, and verify: four PASS lines, one FAIL line, and RECOVERY INCOMPLETE. Restore true afterward.
+- In `status.js`, change only `servicesHealthy` to false, save, refresh, wait for evidence to load automatically, and verify: four PASS lines, one FAIL line, and RECOVERY INCOMPLETE. Restore true afterward.
 
 The original JSON must remain unchanged. The temporary recovery setting is the only required code edit. An event flag does not prove compromise; the blacklist does not block traffic; supplied booleans do not independently verify a real restoration.
 
