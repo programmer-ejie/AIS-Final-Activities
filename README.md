@@ -8,7 +8,7 @@ Student laboratory materials for Information Assurance and Security 2.
 2. Open `Lesson 5/Student Exercise`.
 3. Read `ACTIVITY.md`, then open `index.html` in a browser.
 4. The eight evidence records load automatically; no file selection is needed.
-5. Read the completed functions in `flow.js`, run the tests, and answer **Guide Questions**. Download your answers before refreshing.
+5. Read the completed functions in `service.js`, run the tests, and answer **Guide Questions**. Download your answers before refreshing.
 
 No server or installation is required. All incident records are fictional.
 
