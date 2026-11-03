@@ -62,6 +62,21 @@
       section { scroll-margin-top: 20px; }
       #guide-questions textarea { min-height: 110px; margin: 8px 0 20px; }
       #student-name { padding: 8px; max-width: 100%; box-sizing: border-box; }
+      .flow-figure { margin: 0; }
+      .flow-paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+      .flow-path { padding: 16px; border: 1px solid #cdd9e5; border-radius: 12px; background: #f7f9fc; }
+      .flow-path h3 { margin: 0 0 16px; font-size: 17px; }
+      .flow-steps { list-style: none; margin: 0; padding: 0; }
+      .flow-steps > li + li::before { content: "\2193"; display: block; text-align: center; font-size: 24px; color: #526980; margin: 5px 0; }
+      .flow-node { padding: 12px; text-align: center; border: 1px solid #a6bed4; border-radius: 8px; background: #edf4fb; overflow-wrap: anywhere; }
+      .flow-node code { font-size: 14px; }
+      .flow-node small { display: block; margin-top: 5px; color: #405569; }
+      .flow-node.service { background: #e9f6ef; border-color: #8abda1; }
+      .flow-node.action { background: #174d78; color: white; border-color: #174d78; }
+      .flow-node.result { background: white; border-style: dashed; }
+      .flow-figure figcaption { margin-top: 16px; line-height: 1.6; }
+      @media (max-width: 800px) { .flow-paths { grid-template-columns: 1fr; } }
+      @media print { .flow-path { break-inside: avoid; } }
       @media print {
         nav { display: none; }
         button {
@@ -79,6 +94,7 @@
     <nav aria-label="Activity navigation">
       <a href="#scenario">Scenario</a>
       <a href="#investigation">Evidence and Tests</a>
+      <a href="#system-flow">System Flow</a>
       <a href="#guide-questions">Guide Questions</a>
       <a href="#incident-report">Incident Report (optional)</a>
     </nav>
@@ -127,6 +143,43 @@
       </div>
       <pre id="output" aria-live="polite">
 Loading supplied evidence... Open F12 ? Console to also see analysis output.</pre>
+    </section>
+    <section id="system-flow" lang="en" aria-labelledby="flow-title">
+      <h2 id="flow-title">System Flow</h2>
+      <p>Follow the arrows from top to bottom. Each column begins with a different action.</p>
+      <figure class="flow-figure">
+        <div class="flow-paths">
+          <div class="flow-path">
+            <h3>1. Load evidence</h3>
+            <ol class="flow-steps">
+              <li><div class="flow-node action">Open the website</div></li>
+              <li><div class="flow-node"><code>loadEvidence()</code><small>controller.js &middot; Read the embedded JSON</small></div></li>
+              <li><div class="flow-node"><code>validateLogs()</code><small>controller.js &middot; Validate the record structure</small></div></li>
+              <li><div class="flow-node"><code>showEvidence()</code><small>controller.js &middot; Create the table rows</small></div></li>
+              <li><div class="flow-node result">Display the 8 records</div></li>
+            </ol>
+          </div>
+          <div class="flow-path">
+            <h3>2. Analyze logs</h3>
+            <ol class="flow-steps">
+              <li><div class="flow-node action">Click Analyze logs</div></li>
+              <li><div class="flow-node"><code>analyzeSystemBreach()</code><small>controller.js &middot; Sort a copy of the records</small></div></li>
+              <li><div class="flow-node service"><code>detectSuspiciousEvents()</code><small>service.js &middot; Listed IP OR status is ALERT</small></div></li>
+              <li><div class="flow-node service"><code>buildBlacklist()</code><small>service.js &middot; Unique listed IPs from failed LOGIN events</small></div></li>
+              <li><div class="flow-node result"><code>writeOutput()</code><small>background.js &middot; Display 5 flagged events and 2 unique IPs</small></div></li>
+            </ol>
+          </div>
+          <div class="flow-path">
+            <h3>3. Verify recovery</h3>
+            <ol class="flow-steps">
+              <li><div class="flow-node action">Click Verify simulated recovery</div></li>
+              <li><div class="flow-node"><code>verifyRecovery()</code><small>controller.js &middot; Pass the recoveryEvidence values</small></div></li>
+              <li><div class="flow-node service"><code>checkRecovery()</code><small>service.js &middot; Every check must be true</small></div></li>
+              <li><div class="flow-node result"><code>writeOutput()</code><small>background.js &middot; Display PASS / FAIL and COMPLETE / INCOMPLETE</small></div></li>
+            </ol>
+          </div>
+        </div>
+      </figure>
     </section>
     <section id="guide-questions" aria-labelledby="guide-title">
       <h2 id="guide-title">Guide Questions</h2>
