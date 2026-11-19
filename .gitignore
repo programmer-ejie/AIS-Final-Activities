@@ -3,6 +3,7 @@
 !/README.md
 !/Lesson 5/README.md
 
+
 # Keep local editor files, dependencies, and secrets out of the exercise.
 **/.vscode/
 **/.idea/
@@ -11,3 +12,7 @@
 **/.env.*
 **/Thumbs.db
 **/.DS_Store
+
+# Local Activity 9 demonstration and practice copies.
+/Lesson 6/Activity 9 - Shared Responsibility Mapping and Compliance Hardening/Demo/
+/Lesson 6/Activity 9 - Shared Responsibility Mapping and Compliance Hardening/Practice/

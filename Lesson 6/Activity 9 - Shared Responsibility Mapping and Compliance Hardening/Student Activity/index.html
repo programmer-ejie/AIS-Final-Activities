@@ -1,0 +1,271 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSCAS | Student audit lab</title>
+    <link rel="icon" type="image/svg+xml" href="icon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside>
+        <div class="brand">
+          <img class="brand-mark" src="icon.svg" alt="" />
+          <div>CSCAS<small>SECURITY LAB</small></div>
+        </div>
+        <div class="side-label">WORKSPACE</div>
+        <a class="nav" href="#instructions"
+          ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4Z" />
+            <path d="M4 17a3 3 0 0 1 3-3h12M8 8h7M8 11h5" />
+          </svg>
+          Instructions</a
+        >
+        <a class="nav active" href="#overview"
+          ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+          </svg>
+          Audit overview</a
+        >
+        <a class="nav" href="#activity"
+          ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 2" />
+          </svg>
+          Audit history</a
+        >
+        <div class="side-note">
+          <span>●</span> SIMULATION ENVIRONMENT
+          <p>
+            All settings are local to this browser. No real cloud resources are
+            connected.
+          </p>
+        </div>
+      </aside>
+      <main>
+        <header>
+          <div>
+            <div class="eyebrow">LABORATORY 6 <span>/</span> ACTIVITY 9</div>
+            <h1>Cloud security audit</h1>
+            <p>Inspect configurations, identify gaps, and verify your fixes.</p>
+          </div>
+          <div class="header-right">
+            <span class="badge"><i></i> Simulation</span
+            ><span class="avatar">SA</span>
+          </div>
+        </header>
+        <section class="instructions" data-view="instructions" hidden>
+          <div class="instructions-intro">
+            <span class="instruction-kicker">ACTIVITY 9 ? STUDENT GUIDE</span>
+            <h2>Start your security audit</h2>
+            <p>
+              Follow these steps to inspect the simulated environment, complete
+              the missing security controls, and document your results.
+            </p>
+          </div>
+          <div class="instruction-steps">
+            <article class="card instruction-step">
+              <span class="step-number">01</span>
+              <div>
+                <h3>Inspect the starter</h3>
+                <p>
+                  Open <code>js/services/audit-service.js</code> and examine the
+                  simulated configuration, control checks, and audit engine.
+                  Select <strong>Run audit</strong> to see the starter results.
+                </p>
+              </div>
+            </article>
+            <article class="card instruction-step">
+              <span class="step-number">02</span>
+              <div>
+                <h3>Complete the missing checks</h3>
+                <p>
+                  Follow TODO 1 and TODO 2 in
+                  <code>js/services/audit-service.js</code>: add MFA and
+                  disclosure policy settings, then implement their validation
+                  functions. Set MFA to fail and disclosure to pass initially.
+                </p>
+              </div>
+            </article>
+            <article class="card instruction-step">
+              <span class="step-number">03</span>
+              <div>
+                <h3>Capture the initial audit</h3>
+                <p>
+                  Run the audit again. Expect six checks, two passes, four
+                  failures, and a 33% score. Capture a screenshot showing the
+                  credential, firewall, logging, and MFA failures.
+                </p>
+              </div>
+            </article>
+            <article class="card instruction-step">
+              <span class="step-number">04</span>
+              <div>
+                <h3>Remediate and verify</h3>
+                <p>
+                  Complete TODO 3 in <code>applyRemediationPatch()</code>. Apply
+                  your simulated patch and run another audit. Verify six passes
+                  and a 100% score, then capture the final results.
+                </p>
+              </div>
+            </article>
+            <article class="card instruction-step">
+              <span class="step-number">05</span>
+              <div>
+                <h3>Document and submit</h3>
+                <ul class="submission-list">
+                  <li>
+                    Complete the shared responsibility matrix and prepare a PDF
+                    audit report.
+                  </li>
+                  <li>
+                    For each of the six controls, include a screenshot of its
+                    assessment and explain the result.
+                  </li>
+                  <li>
+                    For each failed control, explain why it failed, who is
+                    responsible, what you changed, and how the correction
+                    resolves it.
+                  </li>
+                  <li>
+                    Include before-and-after screenshots and show the final
+                    passing audit.
+                  </li>
+                  <li>
+                    Submit the PDF, completed source code, repository link,
+                    screenshots, and responsibility matrix through your LMS.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="instruction-note">
+            <strong>Simulation only.</strong> No real cloud infrastructure is
+            modified. Refreshing the page resets the configuration and audit
+            history.
+          </div>
+          <a class="instruction-link" href="#overview"
+            >Go to audit overview <span aria-hidden="true">&rarr;</span></a
+          >
+        </section>
+        <section class="welcome" data-view="overview">
+          <div>
+            <div class="eyebrow light">STUDENT LABORATORY ENVIRONMENT</div>
+            <h2>Make every control count.</h2>
+            <p>
+              Run an audit to assess your simulated cloud environment. Complete
+              the missing checks and remediation function as part of your lab.
+            </p>
+          </div>
+          <div class="shield" aria-hidden="true">✓</div>
+        </section>
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">YOUR WORKSPACE</div>
+            <h2 id="viewTitle">Security overview</h2>
+            <p>
+              Results are calculated from the current simulated configuration.
+            </p>
+          </div>
+          <button id="runAudit">↻ &nbsp; Run audit</button>
+        </div>
+        <section
+          class="metrics"
+          aria-label="Audit summary"
+          data-view="overview"
+        >
+          <article>
+            <div class="metric-label">CONTROLS CHECKED <span>▤</span></div>
+            <strong id="checked">—</strong><small>Completed checks</small>
+          </article>
+          <article>
+            <div class="metric-label">COMPLIANT <span>✓</span></div>
+            <strong id="passed">—</strong><small>Controls passing</small>
+          </article>
+          <article>
+            <div class="metric-label">
+              VIOLATIONS
+              <svg class="icon" aria-hidden="true">
+                <use href="icons.svg#alert"></use>
+              </svg>
+            </div>
+            <strong id="failed">—</strong
+            ><small>Controls requiring attention</small>
+          </article>
+          <article>
+            <div class="metric-label">NOT IMPLEMENTED <span>◷</span></div>
+            <strong id="pending">—</strong
+            ><small>Student checks remaining</small>
+          </article>
+        </section>
+        <section class="grid" data-view="overview" hidden>
+          <article class="card" id="controls">
+            <div class="card-head">
+              <div>
+                <h3>Control assessment</h3>
+                <p>Review the latest audit results.</p>
+              </div>
+              <span id="resultCount" class="subtle">Not yet run</span>
+            </div>
+            <div id="controlList" class="control-list" aria-live="polite">
+              <div class="empty">Run an audit to view control results.</div>
+            </div>
+          </article>
+          <div class="right">
+            <article class="card score-card">
+              <div class="card-head">
+                <div>
+                  <h3>Compliance score</h3>
+                  <p>Based on implemented checks</p>
+                </div>
+                <span
+                  class="info"
+                  title="Pending checks are excluded from the score."
+                  >i</span
+                >
+              </div>
+              <div class="score-ring" id="scoreRing">
+                <div><strong id="score">—</strong><small>COMPLIANT</small></div>
+              </div>
+              <p id="scoreNote" class="score-note">
+                Run an audit to calculate your score.
+              </p>
+            </article>
+            <article class="card action-card">
+              <div class="action-icon">✦</div>
+              <h3>Ready to remediate?</h3>
+              <p>
+                Apply your simulated patch, then run another audit to verify
+                your changes.
+              </p>
+              <button id="remediate" class="secondary">
+                Apply simulated patches <span>→</span></button
+              ><small>No real cloud infrastructure is modified.</small>
+              <p id="patchMessage" class="message" role="status"></p>
+            </article>
+          </div>
+        </section>
+        <section class="card history" id="activity" data-view="activity" hidden>
+          <div class="card-head">
+            <div>
+              <h3>Audit history</h3>
+              <p>Compare audit runs during this browser session.</p>
+            </div>
+            <span class="subtle">SESSION ONLY</span>
+          </div>
+          <div id="historyList" class="empty">No audit runs yet.</div>
+        </section>
+        <footer>
+          CSCAS <span>•</span> Educational simulation <span>•</span> Activity 9
+        </footer>
+      </main>
+    </div>
+    <script src="js/services/audit-service.js"></script>
+    <script src="js/controllers/audit-controller.js"></script>
+    <script src="js/routes/router.js"></script>
+  </body>
+</html>
