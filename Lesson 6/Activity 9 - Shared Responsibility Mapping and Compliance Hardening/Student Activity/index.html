@@ -73,8 +73,9 @@
               <div>
                 <h3>Inspect the starter</h3>
                 <p>
-                  Open <code>js/services/audit-service.js</code> and examine the
-                  simulated configuration, control checks, and audit engine.
+                  Open <code>js/config/cloud-config.js</code> for the simulated
+                  configuration and <code>js/services/audit-service.js</code> for
+                  the control checks and audit engine.
                   Select <strong>Run audit</strong> to see the starter results.
                 </p>
               </div>
@@ -84,8 +85,8 @@
               <div>
                 <h3>Complete the missing checks</h3>
                 <p>
-                  Follow TODO 1 and TODO 2 in
-                  <code>js/services/audit-service.js</code>: add MFA and
+                  Follow TODO 1 in <code>js/config/cloud-config.js</code> and TODO 2
+                  in <code>js/services/audit-service.js</code>: add MFA and
                   disclosure policy settings, then implement their validation
                   functions. Set MFA to fail and disclosure to pass initially.
                 </p>
@@ -96,9 +97,8 @@
               <div>
                 <h3>Capture the initial audit</h3>
                 <p>
-                  Run the audit again. Expect six checks, two passes, four
-                  failures, and a 33% score. Capture a screenshot showing the
-                  credential, firewall, logging, and MFA failures.
+                  Run the audit again and capture a screenshot of all six
+                  checks, including the failing controls.
                 </p>
               </div>
             </article>
@@ -107,9 +107,9 @@
               <div>
                 <h3>Remediate and verify</h3>
                 <p>
-                  Complete TODO 3 in <code>applyRemediationPatch()</code>. Apply
-                  your simulated patch and run another audit. Verify six passes
-                  and a 100% score, then capture the final results.
+                  Update the failing settings in <code>cloudConfig</code>, save
+                  your changes, refresh the page, and run another audit. Verify
+                  six passes and capture the final results.
                 </p>
               </div>
             </article>
@@ -158,7 +158,7 @@
             <h2>Make every control count.</h2>
             <p>
               Run an audit to assess your simulated cloud environment. Complete
-              the missing checks and remediation function as part of your lab.
+              the missing checks and correct the failing settings as part of your lab.
             </p>
           </div>
           <div class="shield" aria-hidden="true">✓</div>
@@ -235,18 +235,6 @@
                 Run an audit to calculate your score.
               </p>
             </article>
-            <article class="card action-card">
-              <div class="action-icon">✦</div>
-              <h3>Ready to remediate?</h3>
-              <p>
-                Apply your simulated patch, then run another audit to verify
-                your changes.
-              </p>
-              <button id="remediate" class="secondary">
-                Apply simulated patches <span>→</span></button
-              ><small>No real cloud infrastructure is modified.</small>
-              <p id="patchMessage" class="message" role="status"></p>
-            </article>
           </div>
         </section>
         <section class="card history" id="activity" data-view="activity" hidden>
@@ -264,6 +252,7 @@
         </footer>
       </main>
     </div>
+    <script src="js/config/cloud-config.js"></script>
     <script src="js/services/audit-service.js"></script>
     <script src="js/controllers/audit-controller.js"></script>
     <script src="js/routes/router.js"></script>

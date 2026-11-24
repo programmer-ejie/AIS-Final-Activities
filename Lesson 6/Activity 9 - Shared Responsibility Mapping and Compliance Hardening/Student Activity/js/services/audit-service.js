@@ -1,17 +1,21 @@
 ﻿"use strict";
 
-// Simulated settings only. Refreshing the page restores these starter values.
-const cloudConfig = {
-  adminCredentials: { unique: true, defaultPasswordChanged: false },
-  firewall: { unrestrictedAdminAccess: true },
-  logging: { enabled: false },
-  storage: { encrypted: true },
-  // TODO 1: Add properties for MFA and a disclosure policy.
-  // Choose clear names and initial values: MFA should fail; disclosure should pass.
-};
+// The trusted range and retention period are simulated audit requirements.
+function checkFirewall(config) {
+  return !config.firewall.unrestrictedAdminAccess &&
+    config.firewall.adminSource === "192.0.2.0/24";
+}
 
-// Each implemented check returns a boolean. A null check is deliberately pending;
-// pending checks are never counted as passing or included in the score.
+function checkLogging(config) {
+  return config.logging.enabled && config.logging.retentionDays >= 90 &&
+    config.logging.protectedFromChanges;
+}
+
+function checkEncryption(config) {
+  return config.storage.encrypted && config.storage.encryptedInTransit;
+}
+
+
 const controls = [
   {
     id: "credentials",
@@ -23,20 +27,20 @@ const controls = [
   {
     id: "firewall",
     name: "Firewall rules",
-    detail: "Administrator access is not open to everyone",
-    check: (c) => !c.firewall.unrestrictedAdminAccess,
+    detail: "Administrator access is restricted to the trusted range 192.0.2.0/24",
+    check: checkFirewall,
   },
   {
     id: "logging",
     name: "System logging",
-    detail: "Audit logging is enabled",
-    check: (c) => c.logging.enabled,
+    detail: "Logs are enabled, protected, and retained for at least 90 days",
+    check: checkLogging,
   },
   {
     id: "encryption",
     name: "Data encryption",
-    detail: "Stored data is encrypted",
-    check: (c) => c.storage.encrypted,
+    detail: "Data is encrypted at rest and in transit",
+    check: checkEncryption,
   },
   {
     id: "mfa",
@@ -50,8 +54,6 @@ const controls = [
     detail: "A security disclosure policy is present",
     check: null,
   },
-  // TODO 2: Replace both null values above with validation functions that
-  // return true or false based on the properties you added to cloudConfig.
 ];
 
 function runAudit() {
@@ -80,9 +82,3 @@ function runAudit() {
   return audit;
 }
 
-function applyRemediationPatch() {
-  // TODO 3: Change the simulated settings that cause the credentials, firewall, logging, and MFA
-  // failures. Do not change passing controls just to make the audit pass.
-  // Return true when your patch has been implemented, then run a new audit.
-  return false;
-}

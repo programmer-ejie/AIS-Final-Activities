@@ -86,9 +86,3 @@ byId("runAudit").addEventListener("click", () => {
   auditHistory.push(audit);
   renderHistory();
 });
-byId("remediate").addEventListener("click", () => {
-  const implemented = applyRemediationPatch();
-  byId("patchMessage").textContent = implemented
-    ? "Patch applied. Run another audit to verify the changes."
-    : "Remediation is not implemented yet. Complete TODO 3 in js/services/audit-service.js.";
-});
